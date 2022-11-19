@@ -16,6 +16,7 @@ app.url_map.strict_slashes = False
 app.register_blueprint(app_views)
 CORS(app, resources={'/*': {'origins': host}})
 
+
 @app.teardown_appcontext
 def teardown_flask(exception):
     '''method to handle @app.teardown_appcontext'''
