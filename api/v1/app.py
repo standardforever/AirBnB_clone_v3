@@ -16,6 +16,13 @@ def teardown_flask(exception):
     '''method to handle @app.teardown_appcontext'''
     storage.close()
 
+
+@app.errorhandler(404)
+def error_404(error):
+    '''Handles error 404 to return json'''
+    return jsonify(error='Not found'), 404
+
+
 if __name__ == '__main__':
     host = os.getenv('HBNB_API_HOST')
     port = os.getenv('HBNB_API_PORT')
